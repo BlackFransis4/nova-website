@@ -1,0 +1,445 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Studio | Creative Digital Agency</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f7f8fc;
+            color: #171717;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            border-bottom: 1px solid #eee;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #635bff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #635bff;
+        }
+
+        .nav-button {
+            background: #635bff;
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 8px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+            background: linear-gradient(135deg, #f7f8fc, #ecebff);
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 80px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #635bff;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #555;
+            margin-bottom: 35px;
+            max-width: 600px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .primary {
+            background: #635bff;
+            color: white;
+        }
+
+        .secondary {
+            border: 1px solid #ccc;
+            color: #222;
+            background: white;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* SERVICES */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #666;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #171717;
+            color: white;
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            color: #ccc;
+            font-size: 18px;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #635bff;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                min-height: 80vh;
+                padding-top: 60px;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">Nova<span>.</span></div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact" class="nav-button">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+
+            <h1>
+                We build brands that
+                <span>stand out.</span>
+            </h1>
+
+            <p>
+                Nova Studio helps businesses create beautiful websites,
+                powerful brands and digital experiences that people remember.
+            </p>
+
+            <div class="buttons">
+                <a href="#services" class="btn primary">Our Services</a>
+                <a href="#contact" class="btn secondary">Get in Touch</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SERVICES -->
+    <section id="services">
+
+        <div class="section-title">
+            <h2>What We Do</h2>
+            <p>Everything you need to build your online presence.</p>
+        </div>
+
+        <div class="services">
+
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Web Design</h3>
+                <p>
+                    Modern, responsive websites designed to look great
+                    on phones, tablets and computers.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎨</div>
+                <h3>Branding</h3>
+                <p>
+                    Create a memorable visual identity that makes
+                    your business stand out from competitors.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🚀</div>
+                <h3>Digital Growth</h3>
+                <p>
+                    Strategies and digital solutions designed to help
+                    your business reach more customers.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <div class="about-container">
+
+            <h2>Built for ambitious businesses.</h2>
+
+            <p>
+                We believe a website should do more than look good.
+                It should communicate your value, build trust and turn
+                visitors into customers.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <div class="section-title">
+            <h2>Let's Work Together</h2>
+            <p>Have a project in mind? Send us a message.</p>
+        </div>
+
+        <div class="contact-box">
+
+            <form onsubmit="sendMessage(event)">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <textarea
+                    id="message"
+                    placeholder="Tell us about your project..."
+                    required
+                ></textarea>
+
+                <button type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Nova Studio. All rights reserved.</p>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        function sendMessage(event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+
+            alert(
+                "Thanks, " + name +
+                "! Your message has been received."
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
+```
